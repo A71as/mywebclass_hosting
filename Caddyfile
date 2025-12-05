@@ -1,0 +1,39 @@
+# Caddy Configuration for Production
+
+# Replace 'example.com' with your actual domain
+{
+    email your-email@example.com
+}
+
+# Static Site
+example.com www.example.com {
+    reverse_proxy static-site:80
+    
+    # Security headers
+    header {
+        # Enable HSTS
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        # Prevent clickjacking
+        X-Frame-Options "SAMEORIGIN"
+        # Prevent MIME sniffing
+        X-Content-Type-Options "nosniff"
+        # Enable XSS protection
+        X-XSS-Protection "1; mode=block"
+        # Referrer policy
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+    
+    # Gzip compression
+    encode gzip
+    
+    # Logging
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+}
+
+# Development/IP access (optional - remove in production)
+:80 {
+    reverse_proxy static-site:80
+}
