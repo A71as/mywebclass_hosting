@@ -3,141 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyWebClass Hosting Platform</title>
+    <title>Ahmed Alami - Projects</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             padding: 20px;
         }
-        
+
         .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 60px;
-            max-width: 800px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .header {
             text-align: center;
-        }
-        
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subtitle {
-            font-size: 1.3em;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        
-        .deploy-badge {
-            display: inline-block;
-            background: #4CAF50;
+            margin-bottom: 50px;
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 20px 0;
-            font-weight: bold;
         }
-        
-        .features {
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin: 40px 0;
-            text-align: left;
         }
-        
-        .feature {
-            padding: 20px;
-            border-radius: 10px;
-            background: #f8f9fa;
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        
-        .feature-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
-        
-        .feature h3 {
-            color: #667eea;
-            margin-bottom: 10px;
+
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
         }
-        
-        .status {
+
+        .project-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-card .badge {
             display: inline-block;
-            padding: 10px 20px;
-            background: #10b981;
+            padding: 5px 15px;
+            background: #667eea;
             color: white;
-            border-radius: 25px;
-            font-weight: bold;
-            margin: 20px 0;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
         }
-        
+
+        .module14 {
+            border-top: 5px solid #3b82f6;
+        }
+
+        .skateiq {
+            border-top: 5px solid #8b5cf6;
+        }
+
         .footer {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9em;
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .project-card {
+                padding: 30px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🚀 MyWebClass Hosting</h1>
-        <p class="subtitle">Production-Ready Hosting Platform</p>
-        
-        <div class="deploy-badge">✅ Deployed by GitHub Actions!</div>
-        
-        <div class="status">✓ System Online</div>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure</h3>
-                <p>Automatic HTTPS with Let's Encrypt SSL certificates</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Fast</h3>
-                <p>Caddy reverse proxy with HTTP/3 support</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🐘</div>
-                <h3>Database</h3>
-                <p>PostgreSQL 16 with pgAdmin management</p>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-icon">🔄</div>
-                <h3>Automated</h3>
-                <p>Watchtower keeps containers updated</p>
-            </div>
+        <div class="header">
+            <h1>Ahmed Alami</h1>
+            <p>Software Engineering Projects</p>
         </div>
-        
+
+        <div class="projects">
+            <a href="https://module14.ahmedalami.click" class="project-card module14">
+                <div class="project-icon">🚀</div>
+                <h2>Module14 IS601</h2>
+                <p>A FastAPI application featuring user authentication, JWT tokens, and PostgreSQL database integration. Built for modern web development with secure API endpoints.</p>
+                <span class="badge">FastAPI • PostgreSQL • JWT</span>
+            </a>
+
+            <a href="https://skateiq.ahmedalami.click" class="project-card skateiq">
+                <div class="project-icon">🏒</div>
+                <h2>SkateIQ</h2>
+                <p>NHL game prediction application powered by AI. Analyzes team statistics, player performance, and historical data to forecast game outcomes.</p>
+                <span class="badge">Python • OpenAI • Analytics</span>
+            </a>
+        </div>
+
         <div class="footer">
-            <p>Built with Docker, Caddy, PostgreSQL, and ❤️</p>
-            <p>Learn more at <strong>github.com/kaw393939/mywebclass_hosting</strong></p>
+            <p>&copy; 2025 Ahmed Alami. All rights reserved.</p>
         </div>
     </div>
 </body>
