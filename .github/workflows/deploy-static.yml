@@ -28,22 +28,18 @@ jobs:
       # Deploy to server
       - name: Deploy to server
         run: |
-          ssh -i ~/.ssh/deploy_key ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} << 'EOF'
             set -e
             echo "Starting deployment..."
             
-            # Navigate to project
-            cd ~/mywebclass_hosting
+            # Navigate to project directory
+            cd ~/projects/mywebclass_hosting
             
             # Pull latest changes
             git pull origin main
             
-            # Copy static files to web root
-            sudo cp -r static-site/html/* /var/www/mywebsite/
-            
-            # Set permissions
-            sudo chown -R www-data:www-data /var/www/mywebsite
-            sudo chmod -R 755 /var/www/mywebsite
+            # Reload Caddy to apply any Caddyfile changes
+            docker-compose exec -T caddy caddy reload --config /etc/caddy/Caddyfile || echo "Caddy reload skipped"
             
             echo "Deployment completed successfully! ✅"
           EOF
