@@ -6,7 +6,8 @@
 
 # Static Site - Main Domain
 ahmedalami.click www.ahmedalami.click {
-    reverse_proxy static-site:80
+    root * /srv/static-site
+    file_server
     
     # Security headers
     header {
